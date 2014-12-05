@@ -1,0 +1,16 @@
+{
+	"name": "mahadazad/page-scrapper",
+	"version": "1.0.0",
+	"authors": [
+        {
+            "name": "Muhammad Mahad Azad",
+            "email": "mahadazad@gmail.com",
+            "homepage": "http://www.madlogics.com"
+        }
+    ],
+	"autoload": {
+		"psr-0": {
+			"PageScrapper\\": "src/"
+		}
+	}
+}
