@@ -9,7 +9,7 @@ Intoduction:
 The easiest way to parse data from a valid xml/html page is to use XPath queries. But the method of fetching
 the remote data can vary e.g. using simple `file_get_contents` function which uses PHP Streams to fetch the remote
 page, `CURL` can be used, the famous `Guzzle` library can be used. To decouple the final product i.e. `Page` from the
-remote page fetching logic and to avoid leaving the `Page` object in a unstable state I have used the Builder pattern.
+remote page fetching logic and to avoid leaving the `Page` object in an unstable state I have used the Builder pattern.
 The `Page` object is passed to the Builder object which contains the logic for fetching the remote page, then the
 builder is passed to the director object which tells the builder how to configure the `Page` object. In a nutshell:
 
