@@ -41,16 +41,16 @@ class Client
 
     /**
      * @param array $config
-     *                      - 'url'			=> accepts string url
+     *                      - 'url'         => accepts string url
      *                      - 'data_config' => array of key => value pairs which maps to either xpath query
-     *                      or a callback which recieves PageInterface object which can be quried
-     *                      and return the required result
-     *                      - 'director'	=> optional config to set director object, defaults to:
-     *                      PageScrapper\Director\PageBuilderDirector
-     *                      - 'builder'		=> optional config to set builder object, defaults to:
-     *                      PageScrapper\Builder\PageBuilder
-     *                      - 'page'		=> optional config to set page object, defaults to:
-     *                      PageScrapper\Page\Page
+     *                                         or a callback which recieves PageInterface object which can be quried
+     *                                         and return the required result
+     *                      - 'director'    => optional config to set director object, defaults to:
+     *                                         PageScrapper\Director\PageBuilderDirector
+     *                      - 'builder'     => optional config to set builder object, defaults to:
+     *                                         PageScrapper\Builder\PageBuilder
+     *                      - 'page'        => optional config to set page object, defaults to:
+     *                                         PageScrapper\Page\Page
      *
      */
     public function __construct(array $config)
