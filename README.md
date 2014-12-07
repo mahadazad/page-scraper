@@ -83,4 +83,18 @@ $page = $client->fetchPage();
 $data = $page->getData();
 ```
 
+Installation:
+=============
+use composer to install the library, in your composer.json:
 
+```json
+{
+    "require": {
+        "mahadazad/page-scrapper": "dev-master"
+    }
+}
+```
+
+or run
+
+`php composer.phar require "mahadazad/page-scrapper":"dev-master"`
