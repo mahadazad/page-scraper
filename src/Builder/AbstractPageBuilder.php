@@ -9,129 +9,127 @@ use PageScrapper\Page\PageInterface;
 */
 abstract class AbstractPageBuilder
 {
+    /**
+     * @var AbstractPageBuilder
+     */
+    protected $page;
 
-	/**
-	 * @var AbstractPageBuilder
-	 */
-	protected $page;
+    /**
+     * @var array
+     */
+    protected $data = array();
 
-	/**
-	 * @var array
-	 */
-	protected $data = array();
+    /**
+     * @var array
+     */
+    protected $dataConfig = array();
 
-	/**
-	 * @var array
-	 */
-	protected $dataConfig = array();
+    /**
+     * @param PageInterface $page
+     */
+    public function __construct(PageInterface $page = null)
+    {
+        $this->page = $page;
+    }
 
+    /**
+     * @param PageInterface
+     */
+    public function setPage(PageInterface $page)
+    {
+        return $this->page = $page;
+    }
 
-	/**
-	 * @param PageInterface $page
-	 */
-	public function __construct(PageInterface $page = null)
-	{
-		$this->page = $page;
-	}
+    /**
+     * @return PageInterface
+     *
+     * @throws \RuntimeException if page property not set
+     */
+    public function getPage()
+    {
+        if (!$this->page instanceof PageInterface) {
+            throw new \RuntimeException(__CLASS__.'::$page is not an instance of PageScrapper\Page\PageInterface');
+        }
 
-	/**
-	 * @param PageInterface
-	 */
-	public function setPage(PageInterface $page)
-	{
-		return $this->page = $page;
-	}
+        return $this->page;
+    }
 
-	/**
-	 * @return PageInterface
-	 *
- 	 * @throws \RuntimeException if page property not set
-	 */
-	public function getPage()
-	{
-		if (!$this->page instanceof PageInterface) {
-			throw new \RuntimeException( __CLASS__ . '::$page is not an instance of PageScrapper\Page\PageInterface');
-		}
+    /**
+     * @param array $config
+     */
+    public function setDataConfig(array $config)
+    {
+        $this->dataConfig = $config;
+    }
 
-		return $this->page;
-	}
+    /**
+     * @return $this
+     */
+    public function initializeData()
+    {
+        $this->getPage()->setData($this->data);
 
-	/**
-	 * @param array $config
-	 */
-	public function setDataConfig(array $config)
-	{
-		$this->dataConfig = $config;
-	}
+        return $this;
+    }
 
-	/**
-	 * @return $this
-	 */
-	public function initializeData()
-	{
-		$this->getPage()->setData($this->data);
-		return $this;
-	}
+    /**
+     * @return $this
+     */
+    public function fetchData()
+    {
+        if (!empty($this->dataConfig)) {
+            foreach ($this->dataConfig as $key => $value) {
+                if (is_string($value)) { // get xpath result
+                    $xpath = $this->getPage()->getXpath();
+                    $this->data[ $key ] = $this->xpathResult($xpath, $value);
+                } elseif (is_callable($value)) { // run callback
+                    $this->data[ $key ] = call_user_func($value, $this->getPage());
+                }
+            }
+        }
 
-	/**
-	 * @return $this
-	 */
-	public function fetchData()
-	{
-		if (!empty($this->dataConfig)) {
-			foreach ($this->dataConfig as $key => $value) {
-				if (is_string($value)) { // get xpath result
-					$xpath = $this->getPage()->getXpath();
-					$this->data[ $key ] = $this->xpathResult($xpath, $value);
-				}
-				else if (is_callable($value)) { // run callback
-					$this->data[ $key ] = call_user_func($value, $this->getPage());
-				}
-			}
-		}
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * @param \DOMXpath $xpath
-	 * @param string $query
-	 * @return null|string|array
-	 */
-	protected function xpathResult($xpath, $query)
-	{
-		$xdata = array();
-		$xresult = $xpath->query($query);
-		$result = null;
+    /**
+     * @param  \DOMXpath         $xpath
+     * @param  string            $query
+     * @return null|string|array
+     */
+    protected function xpathResult($xpath, $query)
+    {
+        $xdata = array();
+        $xresult = $xpath->query($query);
+        $result = null;
 
-		if ($xresult->length > 0) {
-			foreach ($xresult as $node) {
-				$xdata[] = $node->nodeValue;
-			}
+        if ($xresult->length > 0) {
+            foreach ($xresult as $node) {
+                $xdata[] = $node->nodeValue;
+            }
 
-			$result = count($xdata) == 1 ? array_pop($xdata) : $xdata;
-		}
+            $result = count($xdata) == 1 ? array_pop($xdata) : $xdata;
+        }
 
-		return !empty($result) ? $result : null;
-	}
+        return !empty($result) ? $result : null;
+    }
 
-	/**
-	 * @return $this
-	 */
-	public abstract function fetchPage();
+    /**
+     * @return $this
+     */
+    abstract public function fetchPage();
 
-	/**
-	 * @return $this
-	 */
-	public abstract function initializeHtml();
+    /**
+     * @return $this
+     */
+    abstract public function initializeHtml();
 
-	/**
-	 * @return $this
-	 */
-	public abstract function initializeDomDocument();
+    /**
+     * @return $this
+     */
+    abstract public function initializeDomDocument();
 
-	/**
-	 * @return $this
-	 */
-	public abstract function initializeDomXpath();	
-
+    /**
+     * @return $this
+     */
+    abstract public function initializeDomXpath();
 }

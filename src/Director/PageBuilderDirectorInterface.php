@@ -1,6 +1,7 @@
 <?php
 
 namespace PageScrapper\Director;
+
 use PageScrapper\Builder\AbstractPageBuilder;
 
 /**
@@ -8,18 +9,18 @@ use PageScrapper\Builder\AbstractPageBuilder;
 */
 interface PageBuilderDirectorInterface
 {
-	/**
-	 * @param AbstractPageBuilder|PageBuilderCollection $builder
-	 */
-	public function setBuilder($builder);
+    /**
+     * @param AbstractPageBuilder|PageBuilderCollection $builder
+     */
+    public function setBuilder($builder);
 
-	/**
-	 * @return AbstractPageBuilder|PageBuilderCollection
-	 */
-	public function getBuilder();
+    /**
+     * @return AbstractPageBuilder|PageBuilderCollection
+     */
+    public function getBuilder();
 
-	/**
-	 * @return Page|Page[]
-	 */
-	public function buildPage();
+    /**
+     * @return Page|Page[]
+     */
+    public function buildPage();
 }

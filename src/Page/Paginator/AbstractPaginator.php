@@ -9,75 +9,76 @@ use PageScrapper\Page\PageInterface;
 */
 abstract class AbstractPaginator implements PaginatorInterface
 {
-	
-	/**
-	 * @var string
-	 */
-	protected $basePageUrl;
+    /**
+     * @var string
+     */
+    protected $basePageUrl;
 
-	/**
-	 * @var PageInterface
-	 */
-	protected $currentPage;
+    /**
+     * @var PageInterface
+     */
+    protected $currentPage;
 
-	/**
-	 * @var int
-	 */
-	protected $pageCount;
+    /**
+     * @var int
+     */
+    protected $pageCount;
 
-	/**
-	 * @param string $url
-	 */
-	public function setBasePageUrl($url)
-	{
-		$this->basePageUrl = $url;
-	}
-	
-	/**
-	 * @return string
-	 * @throws \RuntimeException if basePageUrl not set
-	 */
-	public function getBasePageUrl(){
-		if (empty($this->basePageUrl)) {
-			throw new \RuntimeException('$this->basePageUrl not set');
-		}
-		return $this->basePageUrl;
-	}
+    /**
+     * @param string $url
+     */
+    public function setBasePageUrl($url)
+    {
+        $this->basePageUrl = $url;
+    }
 
-	/**
-	 * @return PageInterface
-	 */
-	public function setCurrentPage(PageInterface $page)
-	{
-		$this->currentPage = $page;
-	}
+    /**
+     * @return string
+     * @throws \RuntimeException if basePageUrl not set
+     */
+    public function getBasePageUrl()
+    {
+        if (empty($this->basePageUrl)) {
+            throw new \RuntimeException('$this->basePageUrl not set');
+        }
 
-	/**
-	 * @return PageInterface
-	 * @throws \RuntimeException if $this->currentPage not an instance of PageScrapper\Page\PageInterface
-	 */
-	public function getCurrentPage()
-	{
-		if (!$this->currentPage instanceof PageInterface) {
-			throw new \RuntimeException('$this->currentPage must be instance of PageScrapper\Page\PageInterface');
-		}
-		return $this->currentPage;
-	}
+        return $this->basePageUrl;
+    }
 
-	/**
-	 * @param int
-	 */
-	public function setPageCount($count)
-	{
-		$this->pageCount = $count;
-	}
+    /**
+     * @return PageInterface
+     */
+    public function setCurrentPage(PageInterface $page)
+    {
+        $this->currentPage = $page;
+    }
 
-	/**
-	 * @return int
-	 */
-	public function getPageCount()
-	{
-		return $this->pageCount;
-	}
+    /**
+     * @return PageInterface
+     * @throws \RuntimeException if $this->currentPage not an instance of PageScrapper\Page\PageInterface
+     */
+    public function getCurrentPage()
+    {
+        if (!$this->currentPage instanceof PageInterface) {
+            throw new \RuntimeException('$this->currentPage must be instance of PageScrapper\Page\PageInterface');
+        }
 
+        return $this->currentPage;
+    }
+
+    /**
+     * @param int
+     */
+    public function setPageCount($count)
+    {
+        $this->pageCount = $count;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPageCount()
+    {
+        return $this->pageCount;
+    }
 }

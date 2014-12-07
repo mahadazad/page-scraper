@@ -1,6 +1,7 @@
 <?php
 
 namespace PageScrapper\Page\Paginator;
+
 use PageScrapper\Page\PageInterface;
 
 /**
@@ -8,45 +9,43 @@ use PageScrapper\Page\PageInterface;
 */
 interface PaginatorInterface
 {
+    /**
+     * @param string $url
+     */
+    public function setBasePageUrl($url);
 
-	/**
-	 * @param string $url
-	 */
-	public function setBasePageUrl($url);
-	
-	/**
-	 * @return string
-	 */
-	public function getBasePageUrl();
+    /**
+     * @return string
+     */
+    public function getBasePageUrl();
 
-	/**
-	 * @return PageInterface
-	 */
-	public function setCurrentPage(PageInterface $page);
+    /**
+     * @return PageInterface
+     */
+    public function setCurrentPage(PageInterface $page);
 
-	/**
-	 * @return PageInterface
-	 */
-	public function getCurrentPage();
+    /**
+     * @return PageInterface
+     */
+    public function getCurrentPage();
 
-	/**
-	 * @return null|PageInterface
-	 */
-	public function getNextPage();
+    /**
+     * @return null|PageInterface
+     */
+    public function getNextPage();
 
-	/**
-	 * @return null|PageInterface
-	 */
-	public function getPreviousPage();
+    /**
+     * @return null|PageInterface
+     */
+    public function getPreviousPage();
 
-	/**
-	 * @param int
-	 */
-	public function setPageCount($count);
+    /**
+     * @param int
+     */
+    public function setPageCount($count);
 
-	/**
-	 * @return int
-	 */
-	public function getPageCount();
-
+    /**
+     * @return int
+     */
+    public function getPageCount();
 }

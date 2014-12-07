@@ -7,54 +7,53 @@ namespace PageScrapper\Page;
 */
 interface PageInterface
 {
-	/**
-	 * @return string
-	 */
-	public function getUrl();
+    /**
+     * @return string
+     */
+    public function getUrl();
 
-	/**
-	 * @param string
-	 */
-	public function setUrl($url);
+    /**
+     * @param string
+     */
+    public function setUrl($url);
 
-	/**
-	 * @return string
-	 */
-	public function getHtml();
+    /**
+     * @return string
+     */
+    public function getHtml();
 
-	/**
-	 * @param string
-	 */
-	public function setHtml($html);
+    /**
+     * @param string
+     */
+    public function setHtml($html);
 
-	/**
-	 * @param \DomDocument
-	 */
-	public function setDocument(\DomDocument $document);
+    /**
+     * @param \DomDocument
+     */
+    public function setDocument(\DomDocument $document);
 
-	/**
-	 * @return \DomDocument
-	 */
-	public function getDocument();
+    /**
+     * @return \DomDocument
+     */
+    public function getDocument();
 
-	/**
-	 * @return \DOMXpath
-	 */
-	public function getXpath();
+    /**
+     * @return \DOMXpath
+     */
+    public function getXpath();
 
-	/**
-	 * @return \DOMXpath
-	 */
-	public function setXpath(\DOMXpath $xpath);
+    /**
+     * @return \DOMXpath
+     */
+    public function setXpath(\DOMXpath $xpath);
 
-	/**
-	 * @return array
-	 */
-	public function getData();
+    /**
+     * @return array
+     */
+    public function getData();
 
-	/**
-	 * @param array $data
-	 */
-	public function setData($data);
-
+    /**
+     * @param array $data
+     */
+    public function setData($data);
 }
