@@ -4,34 +4,78 @@ namespace PageScrapper\Builder;
 
 use PageScrapper\Page\PageInterface;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 abstract class AbstractPageBuilder
 {
 
+	/**
+	 * @var AbstractPageBuilder
+	 */
 	protected $page;
+
+	/**
+	 * @var array
+	 */
 	protected $data = array();
+
+	/**
+	 * @var array
+	 */
 	protected $dataConfig = array();
 
-	public function __construct(PageInterface $page)
+
+	/**
+	 * @param PageInterface $page
+	 */
+	public function __construct(PageInterface $page = null)
 	{
 		$this->page = $page;
 	}
 
+	/**
+	 * @param PageInterface
+	 */
+	public function setPage(PageInterface $page)
+	{
+		return $this->page = $page;
+	}
+
+	/**
+	 * @return PageInterface
+	 *
+ 	 * @throws \RuntimeException if page property not set
+	 */
 	public function getPage()
 	{
+		if (!$this->page instanceof PageInterface) {
+			throw new \RuntimeException( __CLASS__ . '::$page is not an instance of PageScrapper\Page\PageInterface');
+		}
+
 		return $this->page;
 	}
 
+	/**
+	 * @param array $config
+	 */
 	public function setDataConfig(array $config)
 	{
 		$this->dataConfig = $config;
 	}
 
+	/**
+	 * @return $this
+	 */
 	public function initializeData()
 	{
 		$this->getPage()->setData($this->data);
 		return $this;
 	}
-	
+
+	/**
+	 * @return $this
+	 */
 	public function fetchData()
 	{
 		if (!empty($this->dataConfig)) {
@@ -70,9 +114,24 @@ abstract class AbstractPageBuilder
 		return !empty($result) ? $result : null;
 	}
 
+	/**
+	 * @return $this
+	 */
 	public abstract function fetchPage();
+
+	/**
+	 * @return $this
+	 */
 	public abstract function initializeHtml();
+
+	/**
+	 * @return $this
+	 */
 	public abstract function initializeDomDocument();
+
+	/**
+	 * @return $this
+	 */
 	public abstract function initializeDomXpath();	
 
 }

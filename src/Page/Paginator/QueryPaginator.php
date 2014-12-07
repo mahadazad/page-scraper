@@ -5,13 +5,35 @@ namespace PageScrapper\Page\Paginator;
 use PageScrapper\Page\PageInterface;
 use PageScrapper\PageUtility;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 class QueryPaginator extends AbstractPaginator
 {
 
+	/**
+	 * @var string
+	 */
 	protected $pageParam = 'page';
+
+	/**
+	 * @var array
+	 */
 	protected $queryParams;
+
+	/**
+	 * @var int
+	 */
 	protected $currentPageNumber;
+
+	/**
+	 * @var null|PageInterface
+	 */
 	protected $nextPage = null;
+
+	/**
+	 * @var null|PageInterface
+	 */
 	protected $previousPage = null;
 
 	/**

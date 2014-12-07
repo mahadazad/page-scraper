@@ -3,23 +3,25 @@
 namespace PageScrapper\Builder;
 use PageScrapper\Page\Page;
 
-/*
-
-	array(
-		array( // page config
-			'url' => 'http://www.example.com',
-			'data_config' => array(
-				'key' => function($pageObj){ return value },
-				'key' => 'xpath',
-			)
-		),
-	)
-
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
 */
-
-
 class BuilderFactory
 {
+	/**
+	 * @param array $config
+	 *		  takes an array of url and optional data_config pairs eg:
+	 *		  	array(
+	 *				array( // page config
+	 * 					'url' => 'http://www.example.com',
+	 *					'data_config' => array(
+	 *						'key' => function($pageObj){ return value },
+	 *						'key' => 'xpath',
+	 *					)
+	 *				),
+	 *			)
+	 * @return PageBuilderCollection
+	 */
 	public static function get(array $config)
 	{
 		$builders = new PageBuilderCollection();

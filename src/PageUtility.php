@@ -2,6 +2,9 @@
 
 namespace PageScrapper;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 class PageUtility
 {
 

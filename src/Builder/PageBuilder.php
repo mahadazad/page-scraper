@@ -2,11 +2,20 @@
 
 namespace PageScrapper\Builder;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 class PageBuilder extends AbstractPageBuilder
 {
 
+	/**
+	 * @var string
+	 */
 	protected $html;
 
+	/**
+	 * @return $this
+	 */
 	public function fetchPage()
 	{
 		$url = $this->getPage()->getUrl();
@@ -14,12 +23,18 @@ class PageBuilder extends AbstractPageBuilder
 		return $this;
 	}
 
+	/**
+	 * @return $this
+	 */
 	public function initializeHtml()
 	{
 		$this->getPage()->setHtml($this->html);
 		return $this;
 	}
 
+	/**
+	 * @return $this
+	 */
 	public function initializeDomDocument()
 	{
 		$doc = new \DomDocument();
@@ -28,6 +43,9 @@ class PageBuilder extends AbstractPageBuilder
 		return $this;
 	}
 
+	/**
+	 * @return $this
+	 */
 	public function initializeDomXpath()
 	{
 		$xpath = new \DOMXpath($this->getPage()->getDocument());

@@ -3,6 +3,9 @@
 namespace PageScrapper\Page\Paginator;
 use PageScrapper\Page\PageInterface;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 interface PaginatorInterface
 {
 

@@ -4,11 +4,25 @@ namespace PageScrapper\Page\Paginator;
 
 use PageScrapper\Page\PageInterface;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 abstract class AbstractPaginator implements PaginatorInterface
 {
 	
+	/**
+	 * @var string
+	 */
 	protected $basePageUrl;
+
+	/**
+	 * @var PageInterface
+	 */
 	protected $currentPage;
+
+	/**
+	 * @var int
+	 */
 	protected $pageCount;
 
 	/**
@@ -21,8 +35,12 @@ abstract class AbstractPaginator implements PaginatorInterface
 	
 	/**
 	 * @return string
+	 * @throws \RuntimeException if basePageUrl not set
 	 */
 	public function getBasePageUrl(){
+		if (empty($this->basePageUrl)) {
+			throw new \RuntimeException('$this->basePageUrl not set');
+		}
 		return $this->basePageUrl;
 	}
 
@@ -36,9 +54,13 @@ abstract class AbstractPaginator implements PaginatorInterface
 
 	/**
 	 * @return PageInterface
+	 * @throws \RuntimeException if $this->currentPage not an instance of PageScrapper\Page\PageInterface
 	 */
 	public function getCurrentPage()
 	{
+		if (!$this->currentPage instanceof PageInterface) {
+			throw new \RuntimeException('$this->currentPage must be instance of PageScrapper\Page\PageInterface');
+		}
 		return $this->currentPage;
 	}
 

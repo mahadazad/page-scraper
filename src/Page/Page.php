@@ -2,13 +2,35 @@
 
 namespace PageScrapper\Page;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 class Page implements PageInterface
 {
 
+	/**
+	 * @var \DomDocument
+	 */
 	protected $document;
+
+	/**
+	 * @var string
+	 */
 	protected $url;
+
+	/**
+	 * @var string
+	 */
 	protected $html;
+
+	/**
+	 * @var \DOMXpath
+	 */
 	protected $xpath;
+
+	/**
+	 * @var array
+	 */
 	protected $data = array();
 
 	public function __construct($url = '')
@@ -18,17 +40,29 @@ class Page implements PageInterface
 
 	/**
 	 * @return string
+	 * @throws \RuntimeException if $this->url is not set
 	 */
 	public function getUrl()
 	{
+		if (empty($this->url)) {
+			throw new \RuntimeException('$this->url not set');
+			
+		}
+
 		return $this->url;
 	}
 
 	/**
 	 * @param string
+	 * @throws \RuntimeException if $this->url is invalid
+	 * @todo Also validate url
 	 */
 	public function setUrl($url)
 	{
+		if (empty($url)) {
+			throw new \RuntimeException('$this->url is invalid');
+		}
+
 		$this->url = $url;
 	}
 
@@ -58,17 +92,25 @@ class Page implements PageInterface
 
 	/**
 	 * @return \DomDocument
+	 * @throws \RuntimeException if $this->document not an instance of \DomDocument
 	 */
 	public function getDocument()
 	{
+		if (!$this->document instanceof \DomDocument) {
+			throw new \RuntimeException('$this->document must be an instance of \DomDocument');
+		}
 		return $this->document;
 	}
 
 	/**
 	 * @return \DOMXpath
+	 * @throws \RuntimeException if not an instance of \DOMXpath
 	 */
 	public function getXpath()
 	{
+		if(!$this->xpath instanceof \DOMXpath) {
+			throw new \RuntimeException('$this->xpath not an instance of \DOMXpath');
+		}
 		return $this->xpath;
 	}
 
@@ -101,7 +143,7 @@ class Page implements PageInterface
 	 */
 	protected function query($xpath_query)
 	{
-		return $this->xpath->query($xpath_query);
+		return $this->getXpath()->query($xpath_query);
 	}
 
 }

@@ -2,6 +2,9 @@
 
 namespace PageScrapper\Page;
 
+/**
+* @author Muhammad Mahad Azad <mahadazad@gmail.com>
+*/
 interface PageInterface
 {
 	/**
