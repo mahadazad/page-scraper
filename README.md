@@ -72,7 +72,7 @@ the `data_config` can contain `key` => `value` pairs. Where the value can be a v
 $client = new Client(array(
     'url'         => 'https://news.ycombinator.com',
     'data_config' => array(
-        'titles' => '.title .comhead', // use css selector
+        'side_links' => '.title .comhead', // use css selector
         'titles' => '//td[@class="title"]//a/text()', // use xpath query
         'links' => function ($page) {
             $links = array();
