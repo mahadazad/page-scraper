@@ -1,7 +1,7 @@
 Page Scraper
 =============
 
-Easy to use page scraper with just few lines of code. Scrap data from any website using xpath.
+Easy to use page scraper with just few lines of code. Scrap data from any website using XPath or CSS Selector.
 
 Intoduction:
 ============
@@ -17,8 +17,9 @@ builder is passed to the director object which tells the builder how to configur
 $page = new Page('https://news.ycombinator.com');
 $builder = new PageBuilder($page);
 $builder->setDataConfig(array(
-    'titles' => '//td[@class="title"]//a/text()',
-    'links' => '//td[@class="title"]//a/@href',
+    'side_links' => array('css' => '.title .comhead'), // use CSS Selector
+    'titles'     => '//td[@class="title"]//a/text()', // use XPath
+    'links'      => '//td[@class="title"]//a/@href', // use XPath
 ));
 $director = new PageBuilderDirector($builder);
 $director->buildPage();
@@ -71,10 +72,15 @@ the `data_config` can contain `key` => `value` pairs. Where the value can be a v
 $client = new Client(array(
     'url'         => 'https://news.ycombinator.com',
     'data_config' => array(
-        'titles' => '//td[@class="title"]//a/text()', // the xpath query
+        'titles' => '.title .comhead', // use css selector
+        'titles' => '//td[@class="title"]//a/text()', // use xpath query
         'links' => function ($page) {
-            return $page->getXpath()   // further parse the data if required
-                        ->query('//td[@class="title"]//a/@href')->item(0)->nodeValue;
+            $links = array();
+            $node_list = $page->getXpath()->query('//td[@class="title"]//a/@href');
+            foreach($node_list as $node) {
+                $links[] = $node->nodeValue;
+            }
+            return $links;
         },
     ),
 ));
