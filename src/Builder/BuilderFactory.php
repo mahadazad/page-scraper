@@ -1,8 +1,8 @@
 <?php
 
-namespace PageScrapper\Builder;
+namespace PageScraper\Builder;
 
-use PageScrapper\Page\Page;
+use PageScraper\Page\Page;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>

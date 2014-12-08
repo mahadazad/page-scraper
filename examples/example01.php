@@ -4,7 +4,7 @@ libxml_use_internal_errors(true);
 
 include __DIR__ . '/../vendor/autoload.php';
 
-use PageScrapper\Client;
+use PageScraper\Client;
 
 // the most simpliest way to fetch the data is to use the Client
 $client = new Client(array(

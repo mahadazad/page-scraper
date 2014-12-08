@@ -1,8 +1,8 @@
 <?php
 
-namespace PageScrapper\Tests\Builder;
-use PageScrapper\Builder\PageBuilderCollection;
-use PageScrapper\Builder\PageBuilder;
+namespace PageScraper\Tests\Builder;
+use PageScraper\Builder\PageBuilderCollection;
+use PageScraper\Builder\PageBuilder;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>
@@ -16,7 +16,7 @@ class PageBuilderCollectionTest extends \PHPUnit_Framework_TestCase
 		$builder = new PageBuilder();
 		$collection[100] = $builder;
 
-		$this->assertInstanceOf('PageScrapper\Builder\PageBuilder', $collection[100]);
+		$this->assertInstanceOf('PageScraper\Builder\PageBuilder', $collection[100]);
 		$this->assertEquals(1, count($collection));
 	}
 	

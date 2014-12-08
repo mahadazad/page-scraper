@@ -1,8 +1,8 @@
 <?php
 
-namespace PageScrapper\Builder;
+namespace PageScraper\Builder;
 
-use PageScrapper\Page\PageInterface;
+use PageScraper\Page\PageInterface;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>
@@ -48,7 +48,7 @@ abstract class AbstractPageBuilder
     public function getPage()
     {
         if (!$this->page instanceof PageInterface) {
-            throw new \RuntimeException(__CLASS__.'::$page is not an instance of PageScrapper\Page\PageInterface');
+            throw new \RuntimeException(__CLASS__.'::$page is not an instance of PageScraper\Page\PageInterface');
         }
 
         return $this->page;

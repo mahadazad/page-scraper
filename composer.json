@@ -1,5 +1,5 @@
 {
-	"name": "mahadazad/page-scrapper",
+	"name": "mahadazad/page-scraper",
 	"version": "1.0.0",
 	"authors": [
         {
@@ -10,12 +10,12 @@
     ],
 	"autoload": {
 		"psr-4": {
-			"PageScrapper\\": "src/"
+			"PageScraper\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"PageScrapper\\Tests\\": "tests/"
+			"PageScraper\\Tests\\": "tests/"
 		}
 	},
 	"require": {

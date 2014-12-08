@@ -4,8 +4,8 @@ libxml_use_internal_errors(true);
 
 include __DIR__ . '/../vendor/autoload.php';
 
-use PageScrapper\Builder\BuilderFactory;
-use PageScrapper\Director\PageBuilderDirector;
+use PageScraper\Builder\BuilderFactory;
+use PageScraper\Director\PageBuilderDirector;
 
 // returns the PageBuilderCollection
 $builder = BuilderFactory::get(array(

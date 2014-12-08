@@ -1,6 +1,6 @@
 <?php
 
-namespace PageScrapper\Page;
+namespace PageScraper\Page;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>

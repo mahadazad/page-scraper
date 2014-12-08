@@ -1,8 +1,8 @@
 <?php
 
-namespace PageScrapper\Tests\Builder;
-use PageScrapper\Page\Page;
-use PageScrapper\Tests\Stub\PageBuilder as PageBuilderStub;
+namespace PageScraper\Tests\Builder;
+use PageScraper\Page\Page;
+use PageScraper\Tests\Stub\PageBuilder as PageBuilderStub;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>
@@ -23,7 +23,7 @@ class AbstractPageBuilderTest extends \PHPUnit_Framework_TestCase
 	public function testAbstract()
 	{
 		$this->page = $page = new Page('http://www.google.com/');
-		$builder = $this->builder = $this->getMockForAbstractClass('PageScrapper\Builder\AbstractPageBuilder');
+		$builder = $this->builder = $this->getMockForAbstractClass('PageScraper\Builder\AbstractPageBuilder');
 		$builder->setPage($page);
 
         $builder->expects($this->once())

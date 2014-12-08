@@ -1,13 +1,13 @@
 <?php
 
-namespace PageScrapper;
+namespace PageScraper;
 
-use PageScrapper\Builder\AbstractPageBuilder;
-use PageScrapper\Builder\PageBuilder;
-use PageScrapper\Director\PageBuilderDirectorInterface;
-use PageScrapper\Director\PageBuilderDirector;
-use PageScrapper\Page\PageInterface;
-use PageScrapper\Page\Page;
+use PageScraper\Builder\AbstractPageBuilder;
+use PageScraper\Builder\PageBuilder;
+use PageScraper\Director\PageBuilderDirectorInterface;
+use PageScraper\Director\PageBuilderDirector;
+use PageScraper\Page\PageInterface;
+use PageScraper\Page\Page;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>
@@ -46,11 +46,11 @@ class Client
      *                                         or a callback which recieves PageInterface object which can be quried
      *                                         and return the required result
      *                      - 'director'    => optional config to set director object, defaults to:
-     *                                         PageScrapper\Director\PageBuilderDirector
+     *                                         PageScraper\Director\PageBuilderDirector
      *                      - 'builder'     => optional config to set builder object, defaults to:
-     *                                         PageScrapper\Builder\PageBuilder
+     *                                         PageScraper\Builder\PageBuilder
      *                      - 'page'        => optional config to set page object, defaults to:
-     *                                         PageScrapper\Page\Page
+     *                                         PageScraper\Page\Page
      *
      */
     public function __construct(array $config)

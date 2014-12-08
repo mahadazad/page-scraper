@@ -4,9 +4,9 @@ libxml_use_internal_errors(true);
 
 include __DIR__ . '/../vendor/autoload.php';
 
-use PageScrapper\Page\Page;
-use PageScrapper\Builder\PageBuilder;
-use PageScrapper\Director\PageBuilderDirector;
+use PageScraper\Page\Page;
+use PageScraper\Builder\PageBuilder;
+use PageScraper\Director\PageBuilderDirector;
 
 
 // create a page object

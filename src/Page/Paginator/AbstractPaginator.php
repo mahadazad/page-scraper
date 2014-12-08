@@ -1,8 +1,8 @@
 <?php
 
-namespace PageScrapper\Page\Paginator;
+namespace PageScraper\Page\Paginator;
 
-use PageScrapper\Page\PageInterface;
+use PageScraper\Page\PageInterface;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>
@@ -55,12 +55,12 @@ abstract class AbstractPaginator implements PaginatorInterface
 
     /**
      * @return PageInterface
-     * @throws \RuntimeException if $this->currentPage not an instance of PageScrapper\Page\PageInterface
+     * @throws \RuntimeException if $this->currentPage not an instance of PageScraper\Page\PageInterface
      */
     public function getCurrentPage()
     {
         if (!$this->currentPage instanceof PageInterface) {
-            throw new \RuntimeException('$this->currentPage must be instance of PageScrapper\Page\PageInterface');
+            throw new \RuntimeException('$this->currentPage must be instance of PageScraper\Page\PageInterface');
         }
 
         return $this->currentPage;

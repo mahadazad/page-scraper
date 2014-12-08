@@ -1,9 +1,9 @@
 <?php
 
-namespace PageScrapper\Director;
+namespace PageScraper\Director;
 
-use PageScrapper\Builder\AbstractPageBuilder;
-use PageScrapper\Builder\PageBuilderCollection;
+use PageScraper\Builder\AbstractPageBuilder;
+use PageScraper\Builder\PageBuilderCollection;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>

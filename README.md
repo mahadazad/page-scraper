@@ -1,7 +1,7 @@
-Page Scrapper
+Page Scraper
 =============
 
-Easy to use page scrapper with just few lines of code. Scrap data from any website using xpath.
+Easy to use page scraper with just few lines of code. Scrap data from any website using xpath.
 
 Intoduction:
 ============
@@ -90,11 +90,11 @@ use composer to install the library, in your composer.json:
 ```json
 {
     "require": {
-        "mahadazad/page-scrapper": "dev-master"
+        "mahadazad/page-scraper": "dev-master"
     }
 }
 ```
 
 or run
 
-`php composer.phar require "mahadazad/page-scrapper":"dev-master"`
+`php composer.phar require "mahadazad/page-scraper":"dev-master"`

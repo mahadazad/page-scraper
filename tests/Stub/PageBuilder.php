@@ -1,8 +1,8 @@
 <?php
 
-namespace PageScrapper\Tests\Stub;
+namespace PageScraper\Tests\Stub;
 
-use PageScrapper\Builder\PageBuilder as PageBuilderOrignal;
+use PageScraper\Builder\PageBuilder as PageBuilderOrignal;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>

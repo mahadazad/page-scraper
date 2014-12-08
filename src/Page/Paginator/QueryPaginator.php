@@ -1,9 +1,9 @@
 <?php
 
-namespace PageScrapper\Page\Paginator;
+namespace PageScraper\Page\Paginator;
 
-use PageScrapper\Page\PageInterface;
-use PageScrapper\PageUtility;
+use PageScraper\Page\PageInterface;
+use PageScraper\PageUtility;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>
