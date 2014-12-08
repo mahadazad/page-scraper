@@ -3,6 +3,7 @@
 namespace PageScraper\Builder;
 
 use PageScraper\Page\PageInterface;
+use Symfony\Component\CssSelector\CssSelector;
 
 /**
 * @author Muhammad Mahad Azad <mahadazad@gmail.com>
@@ -79,11 +80,16 @@ abstract class AbstractPageBuilder
     {
         if (!empty($this->dataConfig)) {
             foreach ($this->dataConfig as $key => $value) {
-                if (is_string($value)) { // get xpath result
-                    $xpath = $this->getPage()->getXpath();
-                    $this->data[ $key ] = $this->xpathResult($xpath, $value);
-                } elseif (is_callable($value)) { // run callback
-                    $this->data[ $key ] = call_user_func($value, $this->getPage());
+                switch (1) {
+                    case is_array($value) && strtolower(key($value)) == 'css': // css
+                        $value = CssSelector::toXpath(current($value));
+                    case is_string($value): // xpath
+                        $xpath = $this->getPage()->getXpath();
+                        $this->data[ $key ] = $this->xpathResult($xpath, $value);
+                        break;
+                    case is_callable($value): // calback funtion
+                        $this->data[ $key ] = call_user_func($value, $this->getPage());
+                        break;
                 }
             }
         }
