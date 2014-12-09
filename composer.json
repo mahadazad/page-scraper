@@ -19,7 +19,7 @@
 		}
 	},
 	"require": {
-         "symfony/css-selector": "~2.6",
+         	 "symfony/css-selector": "~2.6",
 		 "phpunit/phpunit": "~4.0"
 	}
 }
