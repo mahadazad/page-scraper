@@ -3,7 +3,7 @@ Page Scraper
 
 Easy to use page scraper with just few lines of code. Scrap data from any website using XPath or CSS Selector.
 
-Intoduction:
+Introduction:
 ============
 
 The easiest way to parse data from a valid xml/html page is to use XPath queries. But the method of fetching
